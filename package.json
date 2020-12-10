@@ -1,0 +1,19 @@
+{
+  "name": "ryan",
+  "version": "1.0.0",
+  "description": "Website to look at Ryan's streak stats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KajalTomar/ryan.git"
+  },
+  "author": "Kajal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KajalTomar/ryan/issues"
+  },
+  "homepage": "https://github.com/KajalTomar/ryan#readme"
+}
