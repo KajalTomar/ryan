@@ -12,6 +12,18 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: Fascinate, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.Quote{
+	font-family: Fascinate;
+}
+
+.Streak{
+	font-family: Fascinate;
+}
+
+#flame{
+	object-fit:none;
 }
