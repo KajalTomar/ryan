@@ -7,8 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 	width: 100vw;
 	height: 100vh;
-	background: rgb(62,2,71);
-	background: radial-gradient(circle, rgba(62,2,71,1) 0%, rgba(64,31,2,1) 14%, rgba(64,4,68,1) 40%, rgba(19,1,33,1) 54%);
+	background-image: url("ryan_bg.JPG");
+	background-size: cover;
 }
 
 code {
