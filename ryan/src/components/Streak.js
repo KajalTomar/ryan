@@ -4,7 +4,7 @@ import React from 'react';
 const Streak = () => {
 	return(
 		<div className="Streak" style={{display: 'flex', flexDirection:'column'}}>
-			<p className='f1 white mv0 pill b--washed-yellow'>100</p>
+			<p className='f1 white mv0 pill b--washed-yellow o=80'>7</p>
 			{/* <img id="flame" src={flame} alt='imagine that there is a gif flame here'/>*/}
 		</div>
 	);

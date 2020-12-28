@@ -3,21 +3,22 @@ import Particles from 'react-particles-js';
 import './App.css'
 import Quote from './components/Quote';
 import Streak from './components/Streak';
+import StreakCalendar from './components/StreakCalendar';
 
 const particlesOptions = {
 	particles: {
 		number: {
-			value: 110,
+			value: 80,
 			density: {
 				enable: true,
-				value_area: 800
+				value_area: 1000
 			}
 		},
 		line_linked:{
 			color: {
 				value: "#FFECFF"
 			},
-			opacity: 0.8
+			opacity: 0.5
 		}		
 	},
 	interactivity: {
@@ -43,7 +44,9 @@ class App extends Component {
 				/>
 				<Quote />
 				<Streak />
-				{ /* <Graph />
+				<StreakCalendar />
+
+				{ /*
 				<Badges />
 				<Stats /> */ }
 			</div>
