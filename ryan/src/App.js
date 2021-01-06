@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 import Particles from 'react-particles-js';
 import './App.css'
 import Quote from './components/Quote';
+import SignIn from './components/SignIn';
+import Navigation from './components/Navigation';
 import Streak from './components/Streak';
 import StreakCalendar from './components/StreakCalendar';
 
@@ -36,17 +39,38 @@ const particlesOptions = {
 }
 
 class App extends Component {
+	constructor(){
+		super();
+		this.state = {
+			password: '',
+			streak: '',
+			allStreaks: [],
+			route: 'SignIn'
+		}
+	}
+
+	onRouteChange = (newRoute) => {
+			this.setState({route: newRoute});			
+	}
+
 	render(){
 		return (
 			<div className="App">
 				<Particles className='particles'
 					params={particlesOptions}
 				/>
-				<Quote />
-				<Streak />
-				<StreakCalendar />
 
-				{ /*
+				{ this.state.route === 'SignIn' 
+					? <SignIn changeRoute={this.onRouteChange} />
+					: <div>
+						<Navigation changeRoute={this.onRouteChange}/>
+						<Quote />
+						<Streak />
+						<StreakCalendar />
+					</div>
+				}
+
+				 {/*
 				<Badges />
 				<Stats /> */ }
 			</div>
