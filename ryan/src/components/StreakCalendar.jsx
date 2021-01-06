@@ -5,7 +5,7 @@ class StreakCalendar extends React.Component {
 
     render (){
     return(<div className = "Calendar" style={{display: 'flex', justifyContent: 'center'}}>
-            <Chart className = "pt7 pa3"
+            <Chart className = "pt2 pa3"
                 width={1200}
                 height={500}
                 chartType="Calendar"
