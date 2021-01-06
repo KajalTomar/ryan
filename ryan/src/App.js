@@ -42,10 +42,8 @@ class App extends Component {
 	constructor(){
 		super();
 		this.state = {
-			password: '',
-			streak: '',
-			allStreaks: [],
-			route: 'SignIn'
+			route: 'SignIn',
+			data: []
 		}
 	}
 
@@ -53,6 +51,12 @@ class App extends Component {
 			this.setState({route: newRoute});			
 	}
 
+	/*
+	componentDidMount() {
+		this.setState({ data: database})
+	}
+	*/
+	
 	render(){
 		return (
 			<div className="App">
@@ -60,14 +64,14 @@ class App extends Component {
 					params={particlesOptions}
 				/>
 
-				{ this.state.route === 'SignIn' 
-					? <SignIn changeRoute={this.onRouteChange} />
-					: <div>
-						<Navigation changeRoute={this.onRouteChange}/>
-						<Quote />
-						<Streak />
-						<StreakCalendar />
+				{ this.state.route === 'home' 
+					? <div>
+					<Navigation changeRoute={this.onRouteChange}/>
+					<Quote />
+					<Streak />
+					<StreakCalendar />
 					</div>
+					: <SignIn changeRoute={this.onRouteChange} /> 
 				}
 
 				 {/*
