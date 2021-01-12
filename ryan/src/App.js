@@ -43,9 +43,15 @@ class App extends Component {
 		super();
 		this.state = {
 			route: 'SignIn',
-			data: []
+			streakinfo:[]
 		}
 	}
+
+	loadData = (data) => {
+		this.setState({streakinfo: data})
+	}
+		
+	
 
 	onRouteChange = (newRoute) => {
 			this.setState({route: newRoute});			
@@ -69,9 +75,9 @@ class App extends Component {
 					<Navigation changeRoute={this.onRouteChange}/>
 					<Quote />
 					<Streak />
-					<StreakCalendar />
+					<StreakCalendar streakinfo = {this.streakinfo}/>
 					</div>
-					: <SignIn changeRoute={this.onRouteChange} /> 
+					: <SignIn loadData = {this.loadData} changeRoute={this.onRouteChange} /> 
 				}
 
 				 {/*

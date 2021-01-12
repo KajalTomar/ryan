@@ -2,16 +2,7 @@ import React from 'react';
 
 class SignIn extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.state = {
-            time: '',
-            streak: ''
-        }
-    }
-
-    handleKeyPress = event => {
-        
+    handleKeyPress = (event) => {    
         if(event.key === "Enter"){
             fetch('http://localhost:3000/signin', {
                 method: 'post',
@@ -19,14 +10,16 @@ class SignIn extends React.Component {
                 body: JSON.stringify({
                     password: this.state.signInPassword
                 })
-            }).then(response => response.json())
+            })
+            .then(response => response.json())
             .then(data => {
-                if (data === 'success'){
+                if (data !== 'You are not Ryan!'){ // if we recieve data then load it in                 
+                    this.props.loadData(data) 
                     this.props.changeRoute('home')
                 }
             })
             event.preventDefault();
-        }
+        } 
     }
 
     onPasswordChange = event => {
