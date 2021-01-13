@@ -6,12 +6,12 @@ import Quote from './components/Quote';
 import SignIn from './components/SignIn';
 import Navigation from './components/Navigation';
 import Streak from './components/Streak';
-import StreakCalendar from './components/StreakCalendar';
+import HeatMap from './components/heatMap';
 
 const particlesOptions = {
 	particles: {
 		number: {
-			value: 80,
+			value: 50,
 			density: {
 				enable: true,
 				value_area: 1000
@@ -39,45 +39,56 @@ const particlesOptions = {
 }
 
 class App extends Component {
+
 	constructor(){
 		super();
 		this.state = {
 			route: 'SignIn',
-			streakinfo:[]
+			streakinfo:[],
 		}
 	}
 
-	loadData = (data) => {
-		this.setState({streakinfo: data})
-	}
-		
-	
-
 	onRouteChange = (newRoute) => {
-			this.setState({route: newRoute});			
+		
+			if(newRoute === 'home'){
+				this.loadData();
+			}
+
+			this.setState({route: newRoute});	
 	}
 
-	/*
-	componentDidMount() {
-		this.setState({ data: database})
+	loadData = () => {
+		fetch('http://localhost:3000/home', {
+                method: 'post',
+				headers: {'Accept': 'application/json'},
+
+			})
+			.then(response => response.json())
+			.then(data => this.setState({streakinfo:data})		
+		);					
 	}
-	*/
 	
 	render(){
+		const {streakinfo} = this.state;
+		var currentStreak;
+
+		if(typeof streakinfo[streakinfo.length-1] !== 'undefined') {
+			currentStreak = streakinfo[streakinfo.length-1].streak;
+		}
+
 		return (
 			<div className="App">
-				<Particles className='particles'
-					params={particlesOptions}
-				/>
-
 				{ this.state.route === 'home' 
 					? <div>
+					<Particles className='particles'
+						params={particlesOptions}
+					/>
 					<Navigation changeRoute={this.onRouteChange}/>
 					<Quote />
-					<Streak />
-					<StreakCalendar streakinfo = {this.streakinfo}/>
+					<Streak streak = {currentStreak}/>
+					<HeatMap data = {streakinfo}/> 
 					</div>
-					: <SignIn loadData = {this.loadData} changeRoute={this.onRouteChange} /> 
+					: <SignIn changeRoute={this.onRouteChange} /> 
 				}
 
 				 {/*
