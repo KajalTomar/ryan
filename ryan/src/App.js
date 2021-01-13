@@ -11,7 +11,7 @@ import HeatMap from './components/heatMap';
 const particlesOptions = {
 	particles: {
 		number: {
-			value: 80,
+			value: 50,
 			density: {
 				enable: true,
 				value_area: 1000
@@ -44,7 +44,7 @@ class App extends Component {
 		super();
 		this.state = {
 			route: 'SignIn',
-			streakinfo:[]
+			streakinfo:[],
 		}
 	}
 
@@ -64,24 +64,29 @@ class App extends Component {
 
 			})
 			.then(response => response.json())
-			.then(data => this.setState({streakinfo:data}));
-					
+			.then(data => this.setState({streakinfo:data})		
+		);					
 	}
 	
 	render(){
+		const {streakinfo} = this.state;
+		var currentStreak;
+
+		if(typeof streakinfo[streakinfo.length-1] !== 'undefined') {
+			currentStreak = streakinfo[streakinfo.length-1].streak;
+		}
 
 		return (
 			<div className="App">
-				<Particles className='particles'
-					params={particlesOptions}
-				/>
-
 				{ this.state.route === 'home' 
 					? <div>
+					<Particles className='particles'
+						params={particlesOptions}
+					/>
 					<Navigation changeRoute={this.onRouteChange}/>
 					<Quote />
-					<Streak />
-					<HeatMap data = {this.state.streakinfo}/> 
+					<Streak streak = {currentStreak}/>
+					<HeatMap data = {streakinfo}/> 
 					</div>
 					: <SignIn changeRoute={this.onRouteChange} /> 
 				}

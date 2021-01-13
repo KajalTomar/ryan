@@ -14,9 +14,7 @@ class HeatMap extends React.Component{
         const {data} = this.props;
         const currentYear = new Date().getFullYear();
 
-        return(<div>
-            if(data){
-                <div> 
+        return(<div className = 'pt7'>
                     <CalendarHeatmap 
                         startDate={new Date(currentYear+'-01-01')}
                         endDate={new Date(currentYear+'-12-31')}
@@ -53,9 +51,7 @@ class HeatMap extends React.Component{
                           
                           }}
                     />  
-                    <ReactTooltip /> 
-                </div>      
-            }
+                    <ReactTooltip />  
         </div>);
     }
 }
