@@ -6,7 +6,7 @@ import Quote from './components/Quote';
 import SignIn from './components/SignIn';
 import Navigation from './components/Navigation';
 import Streak from './components/Streak';
-import StreakCalendar from './components/StreakCalendar';
+import HeatMap from './components/heatMap';
 
 const particlesOptions = {
 	particles: {
@@ -39,6 +39,7 @@ const particlesOptions = {
 }
 
 class App extends Component {
+
 	constructor(){
 		super();
 		this.state = {
@@ -47,23 +48,28 @@ class App extends Component {
 		}
 	}
 
-	loadData = (data) => {
-		this.setState({streakinfo: data})
-	}
-		
-	
-
 	onRouteChange = (newRoute) => {
-			this.setState({route: newRoute});			
+		
+			if(newRoute === 'home'){
+				this.loadData();
+			}
+
+			this.setState({route: newRoute});	
 	}
 
-	/*
-	componentDidMount() {
-		this.setState({ data: database})
+	loadData = () => {
+		fetch('http://localhost:3000/home', {
+                method: 'post',
+				headers: {'Accept': 'application/json'},
+
+			})
+			.then(response => response.json())
+			.then(data => this.setState({streakinfo:data}));
+					
 	}
-	*/
 	
 	render(){
+
 		return (
 			<div className="App">
 				<Particles className='particles'
@@ -75,9 +81,9 @@ class App extends Component {
 					<Navigation changeRoute={this.onRouteChange}/>
 					<Quote />
 					<Streak />
-					<StreakCalendar streakinfo = {this.streakinfo}/>
+					<HeatMap data = {this.state.streakinfo}/> 
 					</div>
-					: <SignIn loadData = {this.loadData} changeRoute={this.onRouteChange} /> 
+					: <SignIn changeRoute={this.onRouteChange} /> 
 				}
 
 				 {/*

@@ -8,13 +8,12 @@ class SignIn extends React.Component {
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    password: this.state.signInPassword
+                    givenPassword: this.state.signInPassword
                 })
             })
             .then(response => response.json())
             .then(data => {
                 if (data !== 'You are not Ryan!'){ // if we recieve data then load it in                 
-                    this.props.loadData(data) 
                     this.props.changeRoute('home')
                 }
             })

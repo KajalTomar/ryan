@@ -1,0 +1,48 @@
+/*
+ * react-calendar-heatmap styles
+ *
+ * All of the styles in this file are optional and configurable!
+ * The github and gitlab color scales are provided for reference.
+ */
+
+.react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #aaa;
+}
+
+.react-calendar-heatmap .react-calendar-heatmap-small-text {
+  font-size: 5px;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: #555;
+  stroke-width: 1px;
+}
+
+/*
+ * Default color scale
+ */
+
+.react-calendar-heatmap .color-empty {
+  fill: #a7a7a757;
+}
+
+.react-calendar-heatmap .color-filled {
+  fill: #3b0a57;
+}
+
+/*
+ *  color scale
+ */
+
+ .react-calendar-heatmap .color-scale-1 { fill: #af85e6; }
+ .react-calendar-heatmap .color-scale-2 { fill: #723fb4; }
+ .react-calendar-heatmap .color-scale-3 { fill: #6b0f7e; }
+ .react-calendar-heatmap .color-scale-4 { fill: #371261; }
+ .react-calendar-heatmap .color-scale-5 { fill: #431974; }
+ 
+.react-calendar-heatmap {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  width: 70%;
+}
