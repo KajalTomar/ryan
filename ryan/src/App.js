@@ -77,9 +77,9 @@ class App extends Component {
 		}
 
 		return (
-			<div className="App">
+			<div className="App" >
 				{ this.state.route === 'home' 
-					? <div>
+					? <div >
 					<Particles className='particles'
 						params={particlesOptions}
 					/>
@@ -88,7 +88,10 @@ class App extends Component {
 					<Streak streak = {currentStreak}/>
 					<HeatMap data = {streakinfo}/> 
 					</div>
-					: <SignIn changeRoute={this.onRouteChange} /> 
+					: 
+						<div>
+							<SignIn changeRoute={this.onRouteChange} />
+						</div> 
 				}
 
 				 {/*

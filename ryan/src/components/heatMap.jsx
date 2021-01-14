@@ -16,7 +16,7 @@ class HeatMap extends React.Component{
 
         return(<div className = 'pt7'>
                     <CalendarHeatmap 
-                        startDate={new Date(currentYear+'-01-01')}
+                        startDate={new Date('2020-12-01')}
                         endDate={new Date(currentYear+'-12-31')}
                         values={data}
                     

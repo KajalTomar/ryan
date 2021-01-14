@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+body {
+  width: 100vw;
+	height: 100vh;	 
+  background-size: cover;
+  background-position: center;
+  background-image: url("cool_bg.JPG");
+}
+
+
 @font-face {
 	font-family: Fascinate; 
 	src: local('Fascinate'), url(./fonts/Fascinate-Regular.ttf) format('truetype');
@@ -13,11 +22,11 @@
 }
 
 .particles {
+  background-image: url("ryan_bg.jpg");
   position: fixed; 
   top: 0;
   right: 0; 
   bottom: 0;
   left: 0; 
   z-index: -1; 
-
 }
